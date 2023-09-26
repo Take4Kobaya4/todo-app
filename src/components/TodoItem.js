@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 export default class TodoItem extends Component{
     render() {
-        const {item} = this.props;
+        const {item, handleEdit} = this.props;
         return(
             <li
             key={item._id}
@@ -11,7 +11,9 @@ export default class TodoItem extends Component{
                     {item.completed ? <s>{item.title}</s> : item.title}
                 </span>
                 <span>
-                    <button className="btn btn-secondary mr-2">編集</button>
+                    <button 
+                    className="btn btn-secondary mr-2"
+                    onClick={() => handleEdit(item)}>編集</button>
                     <button className="btn btn-danger">削除</button>
                 </span>
             </li>

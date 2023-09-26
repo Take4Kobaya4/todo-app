@@ -15,12 +15,14 @@ const todoItems = [
 ];
 
 export default class App extends Component {
+  //default statement : checkbox=empty, title = empty
   state = {
     todoList: todoItems,
     activeItem: {
       title: "",
       completed: false,
-    }
+    },
+    editItem: false,
   }
   handleChange = (e) => {
     let {name, value} = e.target;
@@ -33,7 +35,16 @@ export default class App extends Component {
     this.setState({activeItem});
   }
   handleSubmit = (item) => {
+    // default edit => false
+    this.setState({
+      editItem: false,
+    });
     alert("Save :: " + JSON.stringify(item));
+  }
+
+  handleEdit = (item) => {
+    this.setState({activeItem: item, editItem: true});
+    alert("Edit :: " + JSON.stringify(item));
   }
   render() {
     return (
@@ -43,10 +54,13 @@ export default class App extends Component {
           <div className="col-8 col-md-6 mx-auto mt-2">
             <TodoInput
             activeItem={this.state.activeItem}
+            editItem={this.editItem}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             />
-            <TodoList items={this.state.todoList}/>
+            <TodoList 
+            items={this.state.todoList}
+            handleEdit={this.handleEdit}/>
           </div>
         </div>
       </div>
