@@ -25,7 +25,7 @@ export default class App extends Component {
   handleChange = (e) => {
     let {name, value} = e.target;
 
-    if(e.target.type === checkbox){
+    if(e.target.type === "checkbox"){
       value = e.target.checked;
     }
 
