@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import "./index.css"
-imoprt "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 
 // If you want to start measuring performance in your app, pass a function
